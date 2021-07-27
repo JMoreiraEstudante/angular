@@ -18,3 +18,14 @@ form input {
 #resultado {
     margin: 36px 0 0 12px;
 }
+
+.corretores {
+  width: 350px;
+  height: 220px;
+  overflow: auto;
+}
+
+.corretor label {
+    margin-left: 6px;
+    font-size: 1.3rem;
+}
