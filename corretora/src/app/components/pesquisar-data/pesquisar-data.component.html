@@ -19,8 +19,8 @@
     </div>
     <div class="corretores">
         <div class="corretor" *ngFor="let corretor of corretores">
-            <input type="radio" class="corretor" id="{{corretor.id}}" name="corretor-item" value="{{corretor.nome}}" [(ngModel)]="nome">
-            <label for="{{corretor.nome}}">{{corretor.nome}}</label><br>
+            <input type="radio" class="corretor" name="corretor-item" value="{{corretor.name}}" [(ngModel)]="name">
+            <label for="{{corretor.name}}">{{corretor.name}}</label><br>
         </div>
     </div>
 </form>

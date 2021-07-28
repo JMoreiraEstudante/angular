@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CorretorService } from 'src/app/services/corretor.service';
 import { Corretor } from 'src/app/Corretor';
-import { CORRETORES } from 'src/app/mock-corretores';
 
 @Component({
   selector: 'app-pesquisar-data',
@@ -8,21 +8,24 @@ import { CORRETORES } from 'src/app/mock-corretores';
   styleUrls: ['./pesquisar-data.component.css']
 })
 export class PesquisarDataComponent implements OnInit {
-  corretores: Corretor[] = CORRETORES;
+  corretores: Corretor[] = [];
   resultado = ""
   mes = ""
   ano= ""
-  nome=""
+  name=""
   pagamento=0
-  constructor() { }
+  constructor(private corretorService: CorretorService) { }
 
   ngOnInit(): void {
+    this.corretorService.getCorretores().subscribe((corretores) => {
+      this.corretores = corretores
+    })
   }
 
   mostraSalario() {
     this.corretores.forEach(c => { 
-      if(c.nome == this.nome) this.pagamento = c.salario + c.comissao
+      if(c.name == this.name) this.pagamento = c.salario
     });
-    this.resultado = "O salario do corretor "+this.nome+" no ano "+this.ano+" e mês de "+this.mes +" é "+ this.pagamento;
+    this.resultado = "O salario do corretor "+this.name+" no ano "+this.ano+" e mês de "+this.mes +" é "+ this.pagamento;
   }
 }

@@ -1,6 +1,7 @@
 export interface Corretor {
-  id: number;
-  nome: string;
-  salario: number;
-  comissao: number;
+  name: string,
+  tipo: string,
+  salario: number,
+  creci: number,
+  percentual: number,
 }
