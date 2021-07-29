@@ -1,10 +1,7 @@
 const express = require('express');
 
-const Imoveis = require('../models/imovel')
 
 const Corretor = require('../models/corretor');
-
-const Venda = require('../models/venda')
 
 const router = express.Router();
 
@@ -18,6 +15,19 @@ router.post('/cadastro_Corretor' , async(req , res) =>{
     }
 })
 
+router.get('/corretores', async(req, res) =>{
+    try {
+        Corretor.find({}).lean().exec(
+            function (e, docs) {
+                res.json(docs);
+        });
+    }
+    catch(err){
+        return res.status(400).send({error: 'Falha'})
+    }
+})
+
+/*
 router.post('/imoveis' , async(req , res) =>{
     try{
         const Imoveis = await Imoveis.create(req.body);
@@ -36,7 +46,6 @@ router.post('/venda', async(req, res) =>{
     catch(err){
         return res.status(400).send({error: 'Falha ao carregar as vendas'})
     }
-})
-
-
+})     
+*/
 module.exports = app => app.use('/auth' , router);

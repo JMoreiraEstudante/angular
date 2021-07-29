@@ -4,4 +4,5 @@ export interface Corretor {
   salario: number,
   creci: number,
   percentual: number,
+  data_emissao:Date,
 }

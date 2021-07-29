@@ -1,3 +1,5 @@
+/*
+
 const mongoose = require('../database/mongo');
 
 const UserSchema = new mongoose.Schema({
@@ -28,3 +30,5 @@ const UserSchema = new mongoose.Schema({
 const Corretor = mongoose.model('Venda' , UserSchema);
 
 module.exports = Venda;
+
+*/

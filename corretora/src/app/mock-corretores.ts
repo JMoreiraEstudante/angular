@@ -7,6 +7,7 @@ export const CORRETORES: Corretor[] = [
         salario: 2000,
         creci: 10002016,
         percentual: 1,
+        data_emissao: new Date(),
     },
     {
         name: "Maria",
@@ -14,5 +15,6 @@ export const CORRETORES: Corretor[] = [
         salario: 2000,
         creci: 10002015,
         percentual: 1,
+        data_emissao: new Date(),
     }
 ]

@@ -8,7 +8,7 @@ import { CORRETORES } from 'src/app/mock-corretores';
   providedIn: 'root'
 })
 export class CorretorService {
-  apiUrl = "http://localhost:3001"
+  apiUrl = "http://localhost:3000/auth"
   
   constructor(private http:HttpClient) { }
 

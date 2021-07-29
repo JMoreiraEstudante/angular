@@ -19,6 +19,7 @@ export class PesquisarDataComponent implements OnInit {
   ngOnInit(): void {
     this.corretorService.getCorretores().subscribe((corretores) => {
       this.corretores = corretores
+      console.log(this.corretores)
     })
   }
 

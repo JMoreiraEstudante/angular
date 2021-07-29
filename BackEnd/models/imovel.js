@@ -1,4 +1,4 @@
-const mongoose = require('../database/mongo');
+/*const mongoose = require('../database/mongo');
 
 const UserSchema = new mongoose.Schema({
     codigo:{
@@ -33,4 +33,4 @@ const UserSchema = new mongoose.Schema({
 
 const Imoveis = mongoose.model('Imoveis' , UserSchema);
 
-module.exports = Imoveis;
+module.exports = Imoveis;*/
