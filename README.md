@@ -34,5 +34,7 @@ ng serve
 
 8. Abra o prompt de comando na pasta "BackEnd" onde você clonou este repositório, e digite:
 ```
-node /src/index.js
+node src/index.js
 ```
+
+9. A aplicação deverá estar rodando no endereço: "http://localhost:4200
