@@ -1,14 +1,12 @@
-/*
-
 const mongoose = require('../database/mongo');
 
 const UserSchema = new mongoose.Schema({
     valorRealVenda:{
-        type: number,
+        type: Number,
         require: true,
     },
     nomeComprador:{
-        type: string,
+        type: String,
         require: true,
     },
     dataVenda:{
@@ -27,8 +25,6 @@ const UserSchema = new mongoose.Schema({
     }
 })
 
-const Corretor = mongoose.model('Venda' , UserSchema);
+const Venda = mongoose.model('Venda' , UserSchema);
 
 module.exports = Venda;
-
-*/

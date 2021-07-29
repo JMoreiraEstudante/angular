@@ -1,0 +1,59 @@
+.mat-card-imovel {
+    border: 1px solid #CFD8DC;
+    border-radius: 4px 3px 6px / 2px 4px;
+    padding-top: 15px;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 0%;
+    margin: 5px;
+}
+
+.mat-card-imovel-title{
+    padding-left: 10px;
+    padding-top: 0px;
+    padding-right: 15px;
+    margin-bottom: 0px;
+    min-height: 70px;
+}
+
+img {
+    border: 1px solid #CFD8DC;
+    border-radius: 40px;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 0%;
+    margin: 5px;
+    max-width: 200px;
+    margin-left: 25%;
+    
+}
+select{
+    background:whitesmoke;
+    margin-top: 20px;
+    height: 20px;
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center;
+    
+}
+select:focus{
+    outline: none;
+}
+
+.sucesso{
+    background-color: #28a745;
+    color: whitesmoke;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+.corTolbar{
+    background-color: coral;
+}
+
+table{
+    margin-top: 5px;
+}
+table , th , td{
+    border: 1px solid black;
+}

@@ -1,0 +1,56 @@
+<mat-tab-group mat-align-tabs="start" style="padding-top: 40px; padding-left: 2%; padding-right: 2%;">
+    <mat-tab label="Imoveis">
+        <div fxLayout="row" fxLayoutAlign="start center" style="padding: 2%;">
+            <div style="margin: 0.5%;">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                      </mat-card-header>
+                      <mat-card-content>
+                        
+                        <h3>Selecione um Tipo de Imovel</h3>
+                        <select value="1" #codigo (change) = "atualizarCampos(codigo.value)">
+                            <ng-container *ngFor="let produto of produtosList">
+                                <option [value]="produto.codigo">{{ produto.descricao }}</option>
+                            </ng-container>
+                        </select>
+                        <button mat-raised-button color="primary" style="margin-top: 10px;" (click) = "comprarProduto()">Pesquisar</button> 
+                      </mat-card-content>
+                    </mat-card>
+                  
+            </div>
+
+        </div>
+    </mat-tab>
+    <mat-tab label="Vendidos">
+        <ng-container *ngIf="nome.length > 0">
+            <h3>Compras de {{nome}}</h3>
+        </ng-container>
+       <table>
+           <tr>
+               <th>Codigo</th>
+               <th>Descricao</th>
+               <th>Valor Unitario</th>
+               <th>Valor Desconto</th>
+               <th>Quantidade</th>
+               <th>Valor Total Com Desconto</th>
+           </tr>
+           <ng-container *ngFor="let produto of notaFiscal">
+               <tr>
+                   <td>{{produto.codigo}}</td>
+                   <td>{{produto.descricao}}</td>
+                   <td>R$ {{produto.valor_unitario}}</td>
+                   <td>{{produto.desconto}}%</td>
+                   <td>{{produto.quantidade_vendida}}</td>
+                   <td>R$ {{produto.valor_final}}</td>
+               </tr>
+           </ng-container>
+           <ng-container *ngIf="total > 0">
+            <h3>Valor total: R$ {{total}}</h3>
+           </ng-container>
+           <button mat-raised-button color="primary" style="margin-top: 10px;" (click) = "fecharNota()">Fecha nota</button> 
+
+       </table>
+    </mat-tab>
+    
+  </mat-tab-group>

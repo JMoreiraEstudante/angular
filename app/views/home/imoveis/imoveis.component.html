@@ -1,0 +1,58 @@
+<mat-tab-group mat-align-tabs="start" style="padding-top: 40px; padding-left: 2%; padding-right: 2%;">
+    <mat-tab label="Imoveis">
+      <mat-toolbar>
+        <mat-toolbar-row>
+          
+          <select value="1" #codigo (change) = "tipoSelected(codigo.value)">
+            <ng-container *ngFor="let tipoimovel of tipos" >
+                <option [value]="tipoimovel">{{ tipoimovel}}</option>
+            </ng-container>
+          </select>
+          <span class="example-spacer"></span> 
+          <button mat-raised-button (click) = "AddImovel()"><mat-icon>add</mat-icon>Adicionar Imovel</button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+        <div fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
+            <ng-container *ngFor="let imovel of imoveisCadastrados" style="margin: 0.5%;">
+            <ng-container *ngIf="tipoSelecionado == imovel.tipo">
+              <mat-card class="mat-card-imovel" fxFlex="0 1 calc(33.3% - 11px)" fxFlex.lt-md="0 1 calc(50% - 11px)" fxFlex.lt-sm="100%">
+                    
+                <mat-card-title class="mat-card-imovel-title">
+                  <div class="row">
+                    <p>
+                      <span style="font-size: 1rem;" fxFlex="70" fxLayoutAlign="start center">{{imovel.tipo}}</span>
+                      <span fxFlex></span>
+                      <span style="font-size: 1.7rem;" fxFlex="25" fxLayoutAlign="end center">R${{imovel.preco}}</span>
+                    </p>
+                  </div> 
+                </mat-card-title>
+                    <mat-card-content>
+                      <img mat-card-image src="{{imovel.imagem}}" alt="Photo of a Shiba Inu">
+                        <p>
+                          {{imovel.descricao}}
+                        </p>
+                    </mat-card-content>
+                    <mat-card-actions fxLayoutAlign="center center">
+                      <button mat-raised-button color="success" class="sucesso">Vender</button>
+                      <button mat-raised-button color="primary">Alterar</button>
+                      <button mat-raised-button color="warn">Remover</button>
+                   </mat-card-actions>
+                </mat-card>
+            </ng-container>
+            </ng-container>
+        </div>
+    </mat-tab>
+    <mat-tab label="Vendas">
+      <table>
+        <tr>
+            <th>Valor Real da venda</th>
+            <th>Nome do Comprador</th>
+            <th>Data da Venda</th>
+            <th>Corretor</th>
+        </tr>
+
+
+    </table>
+    </mat-tab>
+    
+</mat-tab-group>

@@ -1,4 +1,4 @@
-/*const mongoose = require('../database/mongo');
+const mongoose = require('../database/mongo');
 
 const UserSchema = new mongoose.Schema({
     codigo:{
@@ -23,14 +23,16 @@ const UserSchema = new mongoose.Schema({
         require: true
     },
     imagem:{
-        type: Schema.Types.ObjectId
+        type: String,
+        require: true
     },
     data:{
         type: Date,
-        require: true
+        require: true,
+        Default: Date.now
     },
 })
 
 const Imoveis = mongoose.model('Imoveis' , UserSchema);
 
-module.exports = Imoveis;*/
+module.exports = Imoveis;
