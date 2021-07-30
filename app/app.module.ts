@@ -23,6 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ImagemImovelComponent } from './views/homem/imagem-imovel/imagem-imovel.component';
+import { NavComponent } from './views/nav/nav.component';
+import { PagamentoComponent } from './views/pagamento/pagamento.component';
+import { PesquisarDataComponent } from './views/pagamento/pesquisar-data/pesquisar-data.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,10 @@ import { ImagemImovelComponent } from './views/homem/imagem-imovel/imagem-imovel
     ProdutosComponent,
     ImoveisComponent,
     DialogoImovelComponent,
-    ImagemImovelComponent
+    ImagemImovelComponent,
+    NavComponent,
+    PagamentoComponent,
+    PesquisarDataComponent
   ],
   imports: [
     HttpClientModule,

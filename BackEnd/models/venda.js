@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema({
         require: true,
     },
     corretor:{
-        type: Number,
+        type: String,
         require: true,
         unique: true
     },

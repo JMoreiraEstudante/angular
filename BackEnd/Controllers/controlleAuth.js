@@ -5,7 +5,6 @@ const Venda = require('../models/venda');
 const Imoveis = require('../models/imovel');
 
 const router = express.Router();
-//#region CADASTROS
 router.post('/cadastro_corretor' , async(req , res) =>{
     try{
         const corretor = await Corretor.create(req.body);
@@ -26,16 +25,50 @@ router.post('/cadastro_imoveis' , async(req , res) =>{
 })
 router.post('/cadastro_venda', async(req, res) =>{
     try{
-        const Venda = await Venda.create(req.body);
-        return res.send({Venda});
+        const venda = await Venda.create(req.body);
+        return res.send({venda});
     }
     catch(err){
         return res.status(400).send({error: 'Falha ao Cadastrar Venda'})
     }
 })
-//#endregion
 
-//#region CONSULTAS
+router.get('/corretores', async(req, res) =>{
+    try {
+        Corretor.find({}).lean().exec(
+            function (e, docs) {
+                res.json(docs);
+        });
+    }
+    catch(err){
+        return res.status(400).send({error: 'Falha'})
+    }
+})
+
+router.get('/vendas', async(req, res) =>{
+    try {
+        Venda.find({}).lean().exec(
+            function (e, docs) {
+                res.json(docs);
+        });
+    }
+    catch(err){
+        return res.status(400).send({error: 'Falha'})
+    }
+})
+
+router.get('/vendas/:corretor_id', async(req, res) =>{
+    try {
+        Venda.find({corretor : req.params.corretor_id}).lean().exec(
+            function (e, docs) {
+                res.json(docs);
+        });
+    }
+    catch(err){
+        return res.status(400).send({error: 'Falha'})
+    }
+})
+
 router.get('/imoveis', async(req , res) => {
     try{
         const imoveis = await Imoveis.find();
@@ -44,5 +77,4 @@ router.get('/imoveis', async(req , res) => {
         return res.status(400).send({error: 'Falha ao consultar imoveis.'})
     }
 })
-//#endregion
 module.exports = app => app.use('/auth' , router);

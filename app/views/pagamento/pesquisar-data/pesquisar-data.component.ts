@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CorretorService } from 'src/app/services/corretor.service';
-import { Corretor } from 'src/app/Corretor';
+import { CorretorService } from 'src/app/shared/services/corretor.service';
+import { Corretor } from 'src/app/shared/models/corretor.model';
 
 @Component({
   selector: 'app-pesquisar-data',

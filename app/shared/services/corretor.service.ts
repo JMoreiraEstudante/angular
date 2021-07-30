@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Corretor } from 'src/app/Corretor';
-import { CORRETORES } from 'src/app/mock-corretores';
+import { Corretor } from '../models/corretor.model';
 
 @Injectable({
   providedIn: 'root'
