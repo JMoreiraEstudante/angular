@@ -5,15 +5,11 @@ O objetivo desta aplicação é a implantação de um sistema para gestão de ve
 a venda de imóveis rurais e urbanos. Os imóveis comercializados são dos seguintes tipos: casa, apartamento, sala comercial, lote, chácara, sítio e fazenda. O sistema deve ser capaz de cadastrar os imóveis à venda, com os seguintes atributos: código, tipo, descrição, nome do vendedor (proprietário), preço solicitado, imagem e data de cadastro.
 
 ## Ferramentas utilizadas
-Visual Studio Code
-
-Angular
-
-Node 
-
-Mongo DB
-
-Express
+- Visual Studio Code
+- Angular
+- Node 
+- Mongo DB
+- Express
 
 ## Sobre o Mongo DB
 Esta aplicação utiliza o Mongo Cloud, o que facilita o uso da aplicação. O acesso ao Mongo Cloud está liberado e qualquer utilização deste código implicará em uma atualização automática no Mongo Cloud, dispensando o uso local do Mongo.
