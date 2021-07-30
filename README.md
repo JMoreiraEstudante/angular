@@ -60,4 +60,4 @@ ng serve
 node src/index.js
 ```
 
-9. A aplicação deverá estar rodando no endereço: "http://localhost:4200
+9. A aplicação deverá estar rodando no endereço: "http://localhost:4200"
