@@ -31,11 +31,14 @@ ng new nome_do_projeto
 ```
 ng add @angular/material
 ```
+    Caso o sistema pergunte algo na instalação, basta apertar o ENTER.
+
 
 3. Na mesma pasta, instale também o Flex Layout
 ```
 ng add @angular/flex-layout@9.0.0-beta.31
 ```
+    Caso o sistema pergunte algo na instalação, basta apertar o ENTER.
 
 Eventualmente, pode ser apresentado o erro da imagem a seguir. Se ocorrer, apenas ignore.
 
