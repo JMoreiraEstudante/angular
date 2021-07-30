@@ -69,6 +69,24 @@ router.get('/vendas/:corretor_id', async(req, res) =>{
     }
 })
 
+router.get('/vendas/:ano/:mes', async(req, res) =>{
+    try {
+        inicio = new Date(req.params.ano, req.params.mes-1, 1)
+        if (req.params.ano != 12) {
+            fim = new Date(req.params.ano, req.params.mes, 1)
+        } else {
+            fim = new Date(req.params.ano+1, 0, 1)
+        }
+        Venda.find({"dataVenda"  : {$gte : inicio, $lt: fim}}).lean().exec(
+            function (e, docs) {
+                res.json(docs);
+        });
+    }
+    catch(err){
+        return res.status(400).send({error: 'Falha'})
+    }
+})
+
 router.get('/imoveis', async(req , res) => {
     try{
         const imoveis = await Imoveis.find();
