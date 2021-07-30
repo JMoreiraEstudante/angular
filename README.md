@@ -23,7 +23,7 @@ Para se visualizar o banco de dados, abra a aplicação MongoDB Compass instalad
 mongodb+srv://leonardo:seila123@cluster0.jqouf.mongodb.net/test?authSource=admin&replicaSet=atlas-o19nrl-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true
 ```
 
-https://user-images.githubusercontent.com/46981155/127581951-22447c50-1a68-4849-9f08-9660c45b4deb.jpeg
+![WhatsApp Image 2021-07-29 at 21 24 05](https://user-images.githubusercontent.com/46981155/127581951-22447c50-1a68-4849-9f08-9660c45b4deb.jpeg)
 
 ## Execução
 1. Crie um novo projeto em uma pasta de sua escolha
@@ -43,7 +43,7 @@ ng add @angular/flex-layout@9.0.0-beta.31
 
 Eventualmente, pode ser apresentado o erro da imagem a seguir. Se ocorrer, apenas ignore.
 
-https://user-images.githubusercontent.com/46981155/127581896-d23f3813-5917-4148-a560-7ea092808232.jpeg
+![WhatsApp Image 2021-07-29 at 20 25 36](https://user-images.githubusercontent.com/46981155/127581896-d23f3813-5917-4148-a560-7ea092808232.jpeg)
 
 4. Clone este repositório em uma outra pasta qualquer do seu computador
 ```
