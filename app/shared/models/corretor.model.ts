@@ -1,4 +1,5 @@
 export interface Corretor {
+  _id: string,
   name: string,
   tipo: string,
   salario: number,
