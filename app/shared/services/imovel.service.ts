@@ -30,4 +30,10 @@ export class ImovelService {
   public cadastrarImovel(imovel: any): Observable<Imovel>{
     return this.httpClient.post<any>(this.url_cadastro, imovel , this.httpOption);
   }
+  
+  public remove(imovel: any): Observable<Imovel>{
+    console.log("Remove");
+    return this.httpClient.post<any>(this.url_excluir, imovel , this.httpOption);
+  }
+  
 }
