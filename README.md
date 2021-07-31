@@ -21,20 +21,25 @@ mongodb+srv://leonardo:seila123@cluster0.jqouf.mongodb.net/test?authSource=admin
 
 ![WhatsApp Image 2021-07-29 at 21 24 05](https://user-images.githubusercontent.com/46981155/127581951-22447c50-1a68-4849-9f08-9660c45b4deb.jpeg)
 
+
 ## Execução
-1. Crie um novo projeto em uma pasta de sua escolha
+1. Crie um novo projeto em uma pasta de sua escolha:
 ```
 ng new nome_do_projeto
 ```
 
-2. Abra a pasta do projeto que você acabou de criar e instale o Angular Material
+2. Abra a pasta do projeto que você acabou de criar e instale o Angular Material e suas animações:
 ```
 ng add @angular/material
+```
+
+```
+npm i @angular/animations
 ```
     Caso o sistema pergunte algo na instalação, basta apertar o ENTER.
 
 
-3. Na mesma pasta, instale também o Flex Layout
+3. Na mesma pasta, instale também o Flex Layout:
 ```
 ng add @angular/flex-layout@9.0.0-beta.31
 ```
@@ -44,12 +49,12 @@ Eventualmente, pode ser apresentado o erro da imagem a seguir. Se ocorrer, apena
 
 ![WhatsApp Image 2021-07-29 at 20 25 36](https://user-images.githubusercontent.com/46981155/127581896-d23f3813-5917-4148-a560-7ea092808232.jpeg)
 
-4. Clone este repositório em uma outra pasta qualquer do seu computador
+4. Clone este repositório em uma outra pasta qualquer do seu computador:
 ```
 git clone https://github.com/JMoreiraEstudante/angular.git
 ```
 
-5. Copie, na pasta onde há o clone deste repositório, a pasta "app"
+5. Copie, na pasta onde há o clone deste repositório, a pasta "app".
 
 6. Abra o diretório do projeto angular que você criou no passo 1, abra a pasta "src" e cole a pasta copiada no passo 5. Confirme a substituição.
 
