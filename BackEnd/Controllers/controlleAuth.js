@@ -33,6 +33,16 @@ router.post('/cadastro_venda', async(req, res) =>{
     }
 })
 
+//Remove imovel 
+router.post('/remove_imovel', async(req, res) =>{
+    try{
+        await Imoveis.remove(req.body);
+    }
+    catch(err){
+        return res.status(400).send({error: 'Falha ao Cadastrar Venda'})
+    }
+})
+
 router.get('/corretores', async(req, res) =>{
     try {
         Corretor.find({}).lean().exec(
