@@ -41,6 +41,12 @@ export class ImoveisComponent implements OnInit {
       console.log(this.imoveisCadastrados)
     });
   }
+  
+   // Remove o imovel
+  removeImovel(imovel:any):void{
+    this.ImovelService.remove(imovel);
+    console.log(imovel.codigo);
+  }
 
   //adiciona os tipo de imoveis disponivel sem adicionar duplicados
   //isso ajuda na hora de adicionar os tipo de imoveis no select pra poder seleciona um imovel pelo tipo
