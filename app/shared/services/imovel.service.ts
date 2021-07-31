@@ -11,6 +11,7 @@ export class ImovelService {
 
   url = 'http://127.0.0.1:3000/auth/imoveis';
   url_cadastro = 'http://127.0.0.1:3000/auth/cadastro_imoveis';
+  url_excluir = 'http://127.0.0.1:3000/auth/remove_imovel';
 
   httpOption = {
     headers: new HttpHeaders({
