@@ -12,7 +12,13 @@ export class ImovelService {
   url = 'http://127.0.0.1:3000/auth/imoveis';
   url_cadastro = 'http://127.0.0.1:3000/auth/cadastro_imoveis';
   url_excluir = 'http://127.0.0.1:3000/auth/remove_imovel';
+<<<<<<< HEAD
+  url_update = 'http://127.0.0.1:3000/auth/update_imovel';
+=======
+>>>>>>> 7fc81788f47673fb34c0ac5625bc8e1e3444f870
 
+  tipo = ''
+  codigo = ''
   httpOption = {
     headers: new HttpHeaders({
       'Content-Type':'application/json'
@@ -23,17 +29,32 @@ export class ImovelService {
   constructor(
     private httpClient: HttpClient
   ) { }
-
+  public setDados(tipo:string , codigo:string){
+    this.tipo = tipo;
+    this.codigo= codigo;
+  }
+  public getTipo(){
+    return this.tipo;
+  }
+  public getCodigo(){
+    return this.codigo;
+  }
   public getImoveis():Observable<ImovelList>{
     return this.httpClient.get<ImovelList>(this.url, )
   }
-
   public cadastrarImovel(imovel: any): Observable<Imovel>{
     return this.httpClient.post<any>(this.url_cadastro, imovel , this.httpOption);
   }
+<<<<<<< HEAD
+  public alterarImovel(imovel: any): Observable<Imovel>{
+    return this.httpClient.post<any>(this.url_update, imovel , this.httpOption);
+  }
+  public remove(imovel: any): Observable<Imovel>{
+=======
   
   public remove(imovel: any): Observable<Imovel>{
     console.log("Remove");
+>>>>>>> 7fc81788f47673fb34c0ac5625bc8e1e3444f870
     return this.httpClient.post<any>(this.url_excluir, imovel , this.httpOption);
   }
   

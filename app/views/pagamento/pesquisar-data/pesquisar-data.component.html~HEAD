@@ -1,0 +1,30 @@
+<form action="" id="pesquisar-data">
+    <div class="top">
+    <select name="mes" class="form-control" id="exampleFormControlSelect1" [(ngModel)]="mes">
+        <option value="1">Janeiro</option>
+        <option value="2">Fevereiro</option>
+        <option value="3">Março</option>
+        <option value="4">Abril</option>
+        <option value="5">Maio</option>
+        <option value="6">Junho</option>
+        <option value="7">Julho</option>
+        <option value="8">Agosto</option>
+        <option value="9">Setembro</option>
+        <option value="10">Outubro</option>
+        <option value="11">Novembro</option>
+        <option value="12">Dezembro</option>
+    </select>   
+    <input type="text" placeholder="Digite um ano" name="ano" [(ngModel)]="ano">
+    <input type="submit" class="btn btn-primary" value="Enviar" (click)="mostraSalario()">
+    </div>
+    <div class="corretores">
+        <div class="corretor" *ngFor="let corretor of corretores">
+            <input type="radio" class="corretor" name="corretor-item" value="{{corretor.name}}" [(ngModel)]="name">
+            <label for="{{corretor.name}}">{{corretor.name}}</label><br>
+        </div>
+    </div>
+</form>
+<div id="resultado">
+    <h2>{{ resultado }}</h2>    
+</div>
+

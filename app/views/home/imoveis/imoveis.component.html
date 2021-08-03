@@ -27,14 +27,18 @@
                   </div> 
                 </mat-card-title>
                     <mat-card-content>
-                      <img mat-card-image src="{{imovel.imagem}}" alt="Photo of a Shiba Inu">
+                      <img mat-card-image src="{{imovel.imagem}}" alt="Photo of a Shiba Inu" (click)="ShowRealImagem(imovel.imagem)">
                         <p>
                           {{imovel.descricao}}
                         </p>
                     </mat-card-content>
                     <mat-card-actions fxLayoutAlign="center center">
                       <button mat-raised-button color="success" class="sucesso">Vender</button>
+<<<<<<< HEAD
+                      <button mat-raised-button color="primary" (click)="AlterarImovel(imovel)">Alterar</button>
+=======
                       <button mat-raised-button color="primary">Alterar</button>
+>>>>>>> 7fc81788f47673fb34c0ac5625bc8e1e3444f870
                       <button mat-raised-button color="warn" (click)="removeImovel(imovel)">Remover</button>
                    </mat-card-actions>
                 </mat-card>

@@ -40,5 +40,6 @@ export class DialogoImovelComponent implements OnInit {
   salvarImovel(){
     this.rest.cadastrarImovel(this.imovelForm.value).subscribe(result => {});
     this.dialogRef.close();
+    window.location.reload()
   }
 }
