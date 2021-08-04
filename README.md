@@ -72,6 +72,9 @@ ng serve
 
 ## Grupo
 2018005379 - Flávio Mota Gomes
+
 2018009636 - João Marcos Calixto Moreira
+
 2018012444 - Leonardo dos Santos de Souza
+
 2018000980 - Rafael Antunes Vieira
