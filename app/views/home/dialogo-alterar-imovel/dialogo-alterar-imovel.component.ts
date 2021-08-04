@@ -42,6 +42,6 @@ alterarImovel(){
   console.log(this.imovelForm.value)
   this.rest.alterarImovel(this.imovelForm.value).subscribe(result => {});
   this.dialogRef.close();
-  //window.location.reload()
+  window.location.reload()
 }
 }
