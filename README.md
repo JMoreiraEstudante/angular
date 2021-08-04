@@ -49,23 +49,23 @@ Eventualmente, pode ser apresentado o erro da imagem a seguir. Se ocorrer, apena
 
 ![WhatsApp Image 2021-07-29 at 20 25 36](https://user-images.githubusercontent.com/46981155/127581896-d23f3813-5917-4148-a560-7ea092808232.jpeg)
 
-4. Clone este repositório em uma outra pasta qualquer do seu computador:
+4. Abra o prompt de comando na pasta "BackEnd" onde você clonou este repositório, e digite:
+```
+node src/index.js
+```
+
+5. Clone este repositório em uma outra pasta qualquer do seu computador:
 ```
 git clone https://github.com/JMoreiraEstudante/angular.git
 ```
 
-5. Copie, na pasta onde há o clone deste repositório, a pasta "app".
+6. Copie, na pasta onde há o clone deste repositório, a pasta "app".
 
-6. Abra o diretório do projeto angular que você criou no passo 1, abra a pasta "src" e cole a pasta copiada no passo 5. Confirme a substituição.
+7. Abra o diretório do projeto angular que você criou no passo 1, abra a pasta "src" e cole a pasta copiada no passo 6. Confirme a substituição.
 
-7. Abra o prompt de comando na pasta do projeto criado no passo 1 e digite
+8. Abra o prompt de comando na pasta do projeto criado no passo 1 e digite
 ```
 ng serve
-```
-
-8. Abra o prompt de comando na pasta "BackEnd" onde você clonou este repositório, e digite:
-```
-node src/index.js
 ```
 
 9. A aplicação deverá estar rodando no endereço: "http://localhost:4200"
