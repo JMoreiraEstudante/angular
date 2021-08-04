@@ -84,7 +84,7 @@ export class ImoveisComponent implements OnInit {
   tiposDisponiveis(){
     for(let i=0; i < this.imoveisCadastrados.length; i++){
       if(this.tipos.indexOf(this.imoveisCadastrados[i].tipo) == -1){
-       if(this.imoveisCadastrados[i].status != "vendido"){
+       if(this.imoveisCadastrados[i].status == "avenda"){
         this.tipos.push(this.imoveisCadastrados[i].tipo)
        }
       }
