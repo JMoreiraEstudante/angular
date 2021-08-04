@@ -104,7 +104,8 @@ router.get('/imoveis', async(req , res) => {
 //#region REMOVE
 router.post('/remove_imovel', async(req, res) =>{
     try{
-        await Imoveis.removeOne(req.body);
+        await Imoveis.updateOne({codigo:req.body.codigo}, {$set: {status: "removido"}});
+        await Imoveis.deleteOne({codigo:req.body.codigo});
         return res.status(200);
     }
     catch(err){
