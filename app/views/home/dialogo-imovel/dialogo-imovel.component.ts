@@ -18,7 +18,8 @@ export class DialogoImovelComponent implements OnInit {
     nomeVendedor:['',[Validators.required]],
     preco:['',[Validators.required]],
     imagem:['',[Validators.required]],
-    data:['',[Validators.required]]
+    data:['',[Validators.required]],
+    status:['',[Validators.required]],
   });
 
   constructor(
@@ -38,6 +39,7 @@ export class DialogoImovelComponent implements OnInit {
   //passa os dados do formulario para o post no service
   //no service ele envia os dados do form para backend
   salvarImovel(){
+    this.imovelForm.value.status = "avenda"
     this.rest.cadastrarImovel(this.imovelForm.value).subscribe(result => {});
     this.dialogRef.close();
     window.location.reload()

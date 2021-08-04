@@ -12,11 +12,8 @@ export class ImovelService {
   url = 'http://127.0.0.1:3000/auth/imoveis';
   url_cadastro = 'http://127.0.0.1:3000/auth/cadastro_imoveis';
   url_excluir = 'http://127.0.0.1:3000/auth/remove_imovel';
-<<<<<<< HEAD
   url_update = 'http://127.0.0.1:3000/auth/update_imovel';
-=======
->>>>>>> 7fc81788f47673fb34c0ac5625bc8e1e3444f870
-
+  url_venda = 'http://127.0.0.1:3000/auth/cadastro_venda';
   tipo = ''
   codigo = ''
   httpOption = {
@@ -45,17 +42,13 @@ export class ImovelService {
   public cadastrarImovel(imovel: any): Observable<Imovel>{
     return this.httpClient.post<any>(this.url_cadastro, imovel , this.httpOption);
   }
-<<<<<<< HEAD
   public alterarImovel(imovel: any): Observable<Imovel>{
     return this.httpClient.post<any>(this.url_update, imovel , this.httpOption);
   }
   public remove(imovel: any): Observable<Imovel>{
-=======
-  
-  public remove(imovel: any): Observable<Imovel>{
-    console.log("Remove");
->>>>>>> 7fc81788f47673fb34c0ac5625bc8e1e3444f870
     return this.httpClient.post<any>(this.url_excluir, imovel , this.httpOption);
   }
-  
+  public venderImovel(imovel: any): Observable<Imovel>{
+    return this.httpClient.post<any>(this.url_venda, imovel , this.httpOption);
+  }
 }

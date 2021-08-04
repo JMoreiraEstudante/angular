@@ -16,7 +16,10 @@ const UserSchema = new mongoose.Schema({
     corretor:{
         type: String,
         require: true,
-        unique: true
+    },
+    imovel:{
+        type: Number,
+        require: true,
     },
     data_emissao:{
         type: Date,

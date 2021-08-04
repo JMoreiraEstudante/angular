@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Alterar Salario e Comissao</h1>
+<div mat-dialog-content>
+<form class="example-form" [formGroup]="imovelForm">
+    
+    <ng-container *ngIf="tipo == 'Contratado'">
+        <mat-form-field class="example-full-width">
+            <mat-label>Novo Salario</mat-label>
+            <input matInput formControlName="salario" name="salario">
+        </mat-form-field>
+    </ng-container>
+
+    <ng-container *ngIf="tipo == 'Comissionado'">
+        <mat-form-field class="example-full-width">
+            <mat-label>Nova Comissao</mat-label>
+            <input matInput formControlName="percentual" name="percentual">
+        </mat-form-field>
+    </ng-container>
+
+    
+</form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="alterarSalarioCorretor()">Alterar</button>
+  <button mat-button (click)="cancelar()">Cancelar</button>
+</div>

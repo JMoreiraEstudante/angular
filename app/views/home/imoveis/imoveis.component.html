@@ -15,34 +15,32 @@
         <div fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
             <ng-container *ngFor="let imovel of imoveisCadastrados" style="margin: 0.5%;">
             <ng-container *ngIf="tipoSelecionado == imovel.tipo">
-              <mat-card class="mat-card-imovel" fxFlex="0 1 calc(33.3% - 11px)" fxFlex.lt-md="0 1 calc(50% - 11px)" fxFlex.lt-sm="100%">
-                    
-                <mat-card-title class="mat-card-imovel-title">
-                  <div class="row">
-                    <p>
-                      <span style="font-size: 1rem;" fxFlex="70" fxLayoutAlign="start center">{{imovel.tipo}}</span>
-                      <span fxFlex></span>
-                      <span style="font-size: 1.7rem;" fxFlex="25" fxLayoutAlign="end center">R${{imovel.preco}}</span>
-                    </p>
-                  </div> 
-                </mat-card-title>
-                    <mat-card-content>
-                      <img mat-card-image src="{{imovel.imagem}}" alt="Photo of a Shiba Inu" (click)="ShowRealImagem(imovel.imagem)">
-                        <p>
-                          {{imovel.descricao}}
-                        </p>
-                    </mat-card-content>
-                    <mat-card-actions fxLayoutAlign="center center">
-                      <button mat-raised-button color="success" class="sucesso">Vender</button>
-<<<<<<< HEAD
-                      <button mat-raised-button color="primary" (click)="AlterarImovel(imovel)">Alterar</button>
-=======
-                      <button mat-raised-button color="primary">Alterar</button>
->>>>>>> 7fc81788f47673fb34c0ac5625bc8e1e3444f870
-                      <button mat-raised-button color="warn" (click)="removeImovel(imovel)">Remover</button>
-                   </mat-card-actions>
-                </mat-card>
+              <ng-container *ngIf="imovel.status != 'vendido'">
+                <mat-card class="mat-card-imovel" fxFlex="0 1 calc(33.3% - 11px)" fxFlex.lt-md="0 1 calc(50% - 11px)" fxFlex.lt-sm="100%">
+                  <mat-card-title class="mat-card-imovel-title">
+                    <div class="row">
+                      <p>
+                        <span style="font-size: 1rem;" fxFlex="70" fxLayoutAlign="start center">{{imovel.tipo}}</span>
+                        <span fxFlex></span>
+                        <span style="font-size: 1.7rem;" fxFlex="25" fxLayoutAlign="end center">R${{imovel.preco}}</span>
+                      </p>
+                    </div> 
+                  </mat-card-title>
+                      <mat-card-content>
+                        <img mat-card-image src="{{imovel.imagem}}" alt="Photo of a Shiba Inu" (click)="ShowRealImagem(imovel.imagem)">
+                          <p>
+                            {{imovel.descricao}}
+                          </p>
+                      </mat-card-content>
+                      <mat-card-actions fxLayoutAlign="center center">
+                        <button mat-raised-button color="success" class="sucesso" (click)="venderImovel(imovel)">Vender</button>
+                        <button mat-raised-button color="primary" (click)="AlterarImovel(imovel)">Alterar</button>
+                        <button mat-raised-button color="warn" (click)="removeImovel(imovel)">Remover</button>
+                     </mat-card-actions>
+                  </mat-card>
+              </ng-container>
             </ng-container>
+            
             </ng-container>
         </div>
     </mat-tab>
@@ -53,10 +51,20 @@
             <th>Nome do Comprador</th>
             <th>Data da Venda</th>
             <th>Corretor</th>
+            <th>COdigo Imovel</th>
         </tr>
-
-
+        <ng-container *ngFor="let venda of vendas">
+        <tr>
+          <td>{{venda.valorRealVenda}}</td>
+          <td>{{venda.nomeComprador}}</td>
+          <td>{{venda.dataVenda}}</td>
+          <td>{{venda.corretor}}</td>
+          <td>{{venda.imovel}}</td>
+        </tr>
+      </ng-container>
     </table>
     </mat-tab>
-    
+    <mat-tab label="Corretores">
+      <app-corretor></app-corretor>
+    </mat-tab>
 </mat-tab-group>

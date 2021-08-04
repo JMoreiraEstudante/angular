@@ -1,0 +1,66 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+      <select value="1" #codigo (change) = "SearchCorretor(codigo.value)">
+        <option value="todos">Filtrar Pelo Creci</option>
+        <ng-container *ngFor="let corretor of corretores" >
+            <option [value]="corretor.creci">{{ corretor.creci}}</option>
+        </ng-container>
+      </select>
+      <span class="example-spacer"></span> 
+      <button mat-raised-button (click) = "AddCorretor()"><mat-icon>add</mat-icon>Adicionar Corretor</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
+    <ng-container *ngFor="let corretor of corretores" style="margin: 0.5%;">
+    <ng-container *ngIf="creciSelecionado == corretor.creci">
+      <mat-card class="mat-card-imovel" fxFlex="0 1 calc(33.3% - 11px)" fxFlex.lt-md="0 1 calc(50% - 11px)" fxFlex.lt-sm="100%">
+            
+        <mat-card-title class="mat-card-imovel-title">
+          <div class="row">
+            <p>
+              <span style="font-size: 1.7rem;" fxFlex="70" fxLayoutAlign="start center">{{corretor.name}}</span>
+              <span fxFlex></span>
+              <span style="font-size: 1rem;" fxFlex="25" fxLayoutAlign="end center">{{corretor.tipo}}</span>
+            </p>
+          </div> 
+        </mat-card-title>
+            <mat-card-content>
+              <img mat-card-image src="https://image.flaticon.com/icons/png/512/74/74472.png" alt="Photo of a Shiba Inu" style="width: 200px; margin-left: 25%;">
+            </mat-card-content>
+            <mat-card-actions fxLayoutAlign="center center">
+                <ng-container *ngIf="corretor.tipo == 'Comissionado'">
+                    <button mat-raised-button color="success" class="comissao" (click)="AlterarSalario(corretor._id , corretor.tipo)">Alterar Comissao</button>
+                </ng-container>
+                <ng-container *ngIf="corretor.tipo == 'Contratado'">
+                    <button mat-raised-button color="success" class="contrato" (click)="AlterarSalario(corretor._id , corretor.tipo)">Alterar Salario</button>
+                </ng-container>
+           </mat-card-actions>
+        </mat-card>
+    </ng-container>
+    <ng-container *ngIf="creciSelecionado == 40028922">
+        <mat-card class="mat-card-imovel" fxFlex="0 1 calc(33.3% - 11px)" fxFlex.lt-md="0 1 calc(50% - 11px)" fxFlex.lt-sm="100%">
+              
+          <mat-card-title class="mat-card-imovel-title">
+            <div class="row">
+              <p>
+                <span style="font-size: 1.7rem;" fxFlex="70" fxLayoutAlign="start center">{{corretor.name}}</span>
+                <span fxFlex></span>
+                <span style="font-size: 1rem;" fxFlex="25" fxLayoutAlign="end center">{{corretor.tipo}}</span>
+              </p>
+            </div> 
+          </mat-card-title>
+              <mat-card-content>
+                <img mat-card-image src="https://image.flaticon.com/icons/png/512/74/74472.png" alt="Photo of a Shiba Inu" style="width: 200px; margin-left: 25%;">
+              </mat-card-content>
+              <mat-card-actions fxLayoutAlign="center center">
+                <ng-container *ngIf="corretor.tipo == 'Comissionado'">
+                    <button mat-raised-button color="success" class="comissao" (click)="AlterarSalario(corretor._id , corretor.tipo)">Alterar Comissao</button>
+                </ng-container>
+                <ng-container *ngIf="corretor.tipo == 'Contratado'">
+                    <button mat-raised-button color="success" class="contrato" (click)="AlterarSalario(corretor._id , corretor.tipo)">Alterar Salario</button>
+                </ng-container>
+             </mat-card-actions>
+          </mat-card>
+      </ng-container>
+    </ng-container>
+</div>

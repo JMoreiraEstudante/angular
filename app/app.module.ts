@@ -21,41 +21,35 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-<<<<<<< HEAD
 import { NavComponent } from './views/nav/nav.component';
 import { PagamentoComponent } from './views/pagamento/pagamento.component';
 import { PesquisarDataComponent } from './views/pagamento/pesquisar-data/pesquisar-data.component';
 import { ImagemRealComponent } from './views/home/imagem-real/imagem-real.component';
 import { DialogoAlterarImovelComponent } from './views/home/dialogo-alterar-imovel/dialogo-alterar-imovel.component';
+import { CorretorComponent } from './views/home/corretor/corretor.component';
+import { DialogoCorretorComponent } from './views/home/dialogo-corretor/dialogo-corretor.component';
+import { SalarioCorretorComponent } from './views/home/salario-corretor/salario-corretor.component';
+import { DialogoVendaComponent } from './views/home/dialogo-venda/dialogo-venda.component';
 
 
-=======
-import { ImagemImovelComponent } from './views/homem/imagem-imovel/imagem-imovel.component';
-import { NavComponent } from './views/nav/nav.component';
-import { PagamentoComponent } from './views/pagamento/pagamento.component';
-import { PesquisarDataComponent } from './views/pagamento/pesquisar-data/pesquisar-data.component';
->>>>>>> 7fc81788f47673fb34c0ac5625bc8e1e3444f870
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ImoveisComponent,
     DialogoImovelComponent,
-<<<<<<< HEAD
     NavComponent,
     PagamentoComponent,
     PesquisarDataComponent,
     ImagemRealComponent,
     DialogoAlterarImovelComponent,
+    CorretorComponent,
+    DialogoCorretorComponent,
+    SalarioCorretorComponent,
+    DialogoVendaComponent,
     
 
  
-=======
-    ImagemImovelComponent,
-    NavComponent,
-    PagamentoComponent,
-    PesquisarDataComponent
->>>>>>> 7fc81788f47673fb34c0ac5625bc8e1e3444f870
   ],
   imports: [
     HttpClientModule,

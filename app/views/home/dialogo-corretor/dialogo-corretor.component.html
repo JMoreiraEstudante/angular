@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Cadastrar Corretor</h1>
+<div mat-dialog-content>
+<form class="example-form" [formGroup]="corretorForm">
+    
+        <mat-label>Tipo de Corretor</mat-label>
+        <select matInput formControlName="tipo" name="tipo" #codigo (change) = "setTipo(codigo.value)"> 
+            <option value="Contratado" selected>Contratados</option>
+            <option value="Comissionado">Comissionados</option>
+        </select>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="name" name="name">
+    </mat-form-field>
+    <ng-container *ngIf="tipoCorretor == 'Contratado'">
+        <mat-form-field class="example-full-width">
+            <mat-label>Salario</mat-label>
+            <input matInput formControlName="salario" name="salario">
+        </mat-form-field>
+    </ng-container>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Creci</mat-label>
+        <input matInput formControlName="creci" name="creci">
+    </mat-form-field>
+
+    <ng-container *ngIf="tipoCorretor == 'Comissionado'">
+        <mat-form-field class="example-full-width">
+            <mat-label>Percentual</mat-label>
+            <input matInput formControlName="percentual" name="percentual">
+        </mat-form-field>
+    </ng-container>    
+
+</form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="salvarCorretor()">Cadastrar</button>
+  <button mat-button (click)="cancelar()">Cancelar</button>
+</div>

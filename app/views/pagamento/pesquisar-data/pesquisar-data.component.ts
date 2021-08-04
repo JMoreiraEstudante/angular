@@ -20,8 +20,8 @@ export class PesquisarDataComponent implements OnInit {
   constructor(private corretorService: CorretorService, private vendaService: VendaService) { }
 
   ngOnInit(): void {
-    this.corretorService.getCorretores().subscribe((corretores) => {
-      this.corretores = corretores
+    this.corretorService.getCorretores().subscribe((data) => {
+      this.corretores = data.corretores
     });
   }
 

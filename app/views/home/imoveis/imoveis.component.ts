@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Imovel } from 'src/app/shared/models/imovel.model';
+import { Venda } from 'src/app/shared/models/venda.model';
+import { CorretorService } from 'src/app/shared/services/corretor.service';
 import { ImagemService } from 'src/app/shared/services/imagem.service';
 import { ImovelService } from 'src/app/shared/services/imovel.service'
+import { VendaService } from 'src/app/shared/services/venda.service';
 import { DialogoAlterarImovelComponent } from '../dialogo-alterar-imovel/dialogo-alterar-imovel.component';
+import { DialogoCorretorComponent } from '../dialogo-corretor/dialogo-corretor.component';
 import { DialogoImovelComponent } from '../dialogo-imovel/dialogo-imovel.component';
+import { DialogoVendaComponent } from '../dialogo-venda/dialogo-venda.component';
 import { ImagemRealComponent } from '../imagem-real/imagem-real.component';
 
 @Component({
@@ -16,18 +21,21 @@ export class ImoveisComponent implements OnInit {
 
   imoveisCadastrados: Imovel[] =[]; 
   tipos: String[] =[];
-  tipoSelecionado: String = 'casa';
+  tipoSelecionado: String = 'todos';
   
+  vendas: Venda[] = []
   
   constructor(
     public ImovelService: ImovelService,
+    public CorretorService: CorretorService,
     public dialog: MatDialog,
-    public Imagem: ImagemService
+    public Imagem: ImagemService,
+    public VendaService: VendaService,
   ) { }
 
   ngOnInit(): void {
     this.getImoveis()
-    
+    this.obterVendas();
   }
   //Abre o dialog com o formulario para cadastro de imovel
   AddImovel(): void {
@@ -67,13 +75,8 @@ export class ImoveisComponent implements OnInit {
   
    // Remove o imovel
   removeImovel(imovel:any):void{
-<<<<<<< HEAD
     this.ImovelService.remove(imovel).subscribe(result => {});
     window.location.reload()
-=======
-    this.ImovelService.remove(imovel);
-    console.log(imovel.codigo);
->>>>>>> 7fc81788f47673fb34c0ac5625bc8e1e3444f870
   }
 
   //adiciona os tipo de imoveis disponivel sem adicionar duplicados
@@ -81,7 +84,9 @@ export class ImoveisComponent implements OnInit {
   tiposDisponiveis(){
     for(let i=0; i < this.imoveisCadastrados.length; i++){
       if(this.tipos.indexOf(this.imoveisCadastrados[i].tipo) == -1){
+       if(this.imoveisCadastrados[i].status != "vendido"){
         this.tipos.push(this.imoveisCadastrados[i].tipo)
+       }
       }
     }
     this.tipoSelecionado = this.tipos[0]
@@ -91,5 +96,24 @@ export class ImoveisComponent implements OnInit {
   tipoSelected(selected: String){
     this.tipoSelecionado = selected;
   }
+  
 
+  //Salva a venda realizada no banco
+  venderImovel(imovel:Imovel):void{
+    this.VendaService.SetImove(imovel.codigo);
+    const dialogRef = this.dialog.open(DialogoVendaComponent, {
+      minWidth: '400px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      //this.obterVendas();
+    });
+  }
+
+  obterVendas(){
+    this.VendaService.getAllVendas().subscribe(data=>{
+      this.vendas = data.vendas;
+    })
+  }
 }

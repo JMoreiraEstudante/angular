@@ -26,6 +26,11 @@ const UserSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    status:{
+        type: String,
+        required: true,
+        Default: "Avenda"
+    },
     data:{
         type: Date,
         require: true,

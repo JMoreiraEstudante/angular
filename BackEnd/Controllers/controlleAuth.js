@@ -5,6 +5,7 @@ const Venda = require('../models/venda');
 const Imoveis = require('../models/imovel');
 
 const router = express.Router();
+//#region CADASTRO
 router.post('/cadastro_corretor' , async(req , res) =>{
     try{
         const corretor = await Corretor.create(req.body);
@@ -14,7 +15,7 @@ router.post('/cadastro_corretor' , async(req , res) =>{
     }
 })
 router.post('/cadastro_imoveis' , async(req , res) =>{
-    console.log(req.body)
+   // console.log(req.body)
     try{
         const imovelCadastro = await Imoveis.create(req.body);
         return res.send({imovelCadastro});
@@ -24,43 +25,36 @@ router.post('/cadastro_imoveis' , async(req , res) =>{
     }
 })
 router.post('/cadastro_venda', async(req, res) =>{
+    console.log(req.body)
     try{
         const venda = await Venda.create(req.body);
+        const imovel = await Imoveis.updateOne({codigo:req.body.imovel}, {$set: {status: 'vendido'}})
+        console.log(imovel)
         return res.send({venda});
     }
     catch(err){
+        console.log(err)
         return res.status(400).send({error: 'Falha ao Cadastrar Venda'})
     }
 })
+//#endregion
 
-//Remove imovel 
-router.post('/remove_imovel', async(req, res) =>{
-    try{
-        await Imoveis.remove(req.body);
-    }
-    catch(err){
-        return res.status(400).send({error: 'Falha ao Cadastrar Venda'})
-    }
-})
-
+//#region Consulta
 router.get('/corretores', async(req, res) =>{
     try {
-        Corretor.find({}).lean().exec(
-            function (e, docs) {
-                res.json(docs);
-        });
+        const corretores = await Corretor.find();
+        return res.status(200).send({corretores})
     }
     catch(err){
+        console.lor(err)
         return res.status(400).send({error: 'Falha'})
     }
 })
 
 router.get('/vendas', async(req, res) =>{
     try {
-        Venda.find({}).lean().exec(
-            function (e, docs) {
-                res.json(docs);
-        });
+        const vendas = await Venda.find();
+        return res.status(200).send({vendas})
     }
     catch(err){
         return res.status(400).send({error: 'Falha'})
@@ -105,4 +99,44 @@ router.get('/imoveis', async(req , res) => {
         return res.status(400).send({error: 'Falha ao consultar imoveis.'})
     }
 })
+//#endregion
+
+//#region REMOVE
+router.post('/remove_imovel', async(req, res) =>{
+    try{
+        await Imoveis.removeOne(req.body);
+        return res.status(200);
+    }
+    catch(err){
+        return res.status(400).send({error: 'Falha ao Cadastrar Venda'})
+    }
+})
+//#endregion
+
+//#region UPDATE
+router.post('/update_imovel', async(req, res) =>{
+    try{
+        await Imoveis.updateOne({codigo:req.body.codigo}, {$set: {descricao:req.body.descricao , nomeVendedor:req.body.nomeVendedor, preco:req.body.preco , imagem:req.body.imagem , data:req.body.data}});
+        return res.status(200);
+    }
+    catch(err){
+        return res.status(400).send({error: 'Falha ao Cadastrar Venda'})
+    }
+})
+
+router.post('/update_salario', async(req, res) =>{
+    try{
+        if(req.body.tipo == 'Contratado'){
+            await Corretor.updateOne({_id:req.body._id}, {$set: {salario:req.body.salario }});
+            return res.status(200);
+        }else {
+            await Corretor.updateOne({_id:req.body._id}, {$set: {percentual:req.body.percentual }});
+            return res.status(200);
+        }
+    }
+    catch(err){
+        return res.status(400).send({error: 'Falha ao Cadastrar Venda'})
+    }
+})
+//#endregion
 module.exports = app => app.use('/auth' , router);

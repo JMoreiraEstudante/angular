@@ -5,5 +5,6 @@ export interface Imovel {
     nomeVendedor: string;
     preco: number;
     imagem: string;
+    status: string;
     data: Date;
 }

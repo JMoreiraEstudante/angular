@@ -18,7 +18,7 @@ const UserSchema = new mongoose.Schema({
         require: true,
         unique: true
     },
-    data_emissao:{
+    data_admissao:{
         type: Date,
         require: true,
         default: Date.now

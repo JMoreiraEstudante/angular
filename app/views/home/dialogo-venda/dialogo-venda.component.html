@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Novo Imovel</h1>
+<div mat-dialog-content>
+<form class="example-form" [formGroup]="vendaimovelForm">
+    <mat-label>Corretor Responsavel</mat-label>
+        <select matInput formControlName="corretor" name="corretor">
+            <ng-container *ngFor="let corr of corretores">
+                <option value="{{corr.creci}}">{{corr.name}}</option>
+            </ng-container>
+        </select>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Valor da Venda</mat-label>
+        <input matInput formControlName="valorRealVenda" name="valorRealVenda">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Nome do comprador</mat-label>
+        <input matInput formControlName="nomeComprador" name="nomeComprador">
+    </mat-form-field>
+    
+    <mat-label>Data da Venda</mat-label>
+    <input type="date" formControlName="dataVenda" name="dataVenda">
+    
+</form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="realizarVenda()">Confirmar</button>
+  <button mat-button (click)="cancelar()">Cancelar</button>
+</div>
